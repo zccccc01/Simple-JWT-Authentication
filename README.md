@@ -16,6 +16,11 @@ go get -u github.com/cosmtrek/air
 go get github.com/golang-jwt/jwt/v5
 go get golang.org/x/crypto/bcrypt
 ```
+## 注意
+记得看go-auth/database/connection.go里面的注释  
+`username改为自己的MySQL用户名,passwd改为自己的密码,yourdb改为你使用的库`
+
+
 ## 后端启动
 ```bash
 cd ./go-auth
