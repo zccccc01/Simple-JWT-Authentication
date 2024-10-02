@@ -34,4 +34,10 @@ python -m http.server 3000
 ## 浏览器打开
 `http://localhost:3000`
 
-即可看到界面,实现简易的登录,登出,注册功能
+即可看到界面,实现简易的登录,登出,注册功能  
+**注:我这里没有使用react去构建前端**
+
+## learn from
+[youtube教学视频](https://youtu.be/d4Y2DkKbxM0?si=BNUstHwr6lPhwjSJ)
+freeCodeCamp  
+React and Golang JWT Authentication - Tutorial
