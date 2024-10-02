@@ -1,7 +1,6 @@
 package main
 
 // 使用的框架:fiber(web框架) gorm(数据库) air(热重载) driver(mysql) jwt(令牌)
-// 自己那个数据库表的password可能要换longtext类型
 import (
 	"go-auth/database"
 	"go-auth/routes"
