@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            text-align: center; /* 居中对齐所有文本 */
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Authenticated User Info</h2>
+    <p id="userInfo"></p>
+    <button id="getUser">Get User Info</button>
+    <button id="logout">Logout</button>
+    <p id="logoutMessage"></p>
+
+    <script>
+        // 获取已登录的用户信息
+        document.getElementById('getUser').addEventListener('click', async function () {
+            const response = await fetch('http://localhost:8000/api/user', {
+                method: 'GET',
+                credentials: 'include'  // 确保请求带上 cookie
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                document.getElementById('userInfo').textContent = `User ID: ${data.id}, Phone: ${data.tel}, Name: ${data.name}`;
+            } else {
+                document.getElementById('userInfo').textContent = 'Failed to retrieve user info';
+            }
+        });
+
+        // 登出
+        document.getElementById('logout').addEventListener('click', async function () {
+            try {
+                const response = await fetch('http://localhost:8000/api/logout', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    credentials: 'include' // 发送带有cookie的请求
+                });
+
+                if (response.ok) {
+                    document.getElementById('logoutMessage').textContent = 'Logout successful';
+                    window.location.href = 'index.html'; // 登出后返回主页
+                } else {
+                    document.getElementById('logoutMessage').textContent = 'Logout failed';
+                }
+            } catch (error) {
+                document.getElementById('logoutMessage').textContent = 'An error occurred';
+            }
+        });
+    </script>
+</body>
+
+</html>
+
