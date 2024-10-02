@@ -5,3 +5,5 @@
 4. go get -u github.com/cosmtrek/air
 5. go get github.com/golang-jwt/jwt/v5
 6. go get golang.org/x/crypto/bcrypt
+## 启动
+air -c .air.toml
