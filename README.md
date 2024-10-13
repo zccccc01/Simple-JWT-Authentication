@@ -9,12 +9,7 @@ mysql version 8.0
 
 ## 安装后端go的包
 ```
-go get github.com/gofiber/fiber/v2
-go get -u gorm.io/gorm
-go get -u gorm.io/driver/mysql
-go get -u github.com/cosmtrek/air
-go get github.com/golang-jwt/jwt/v5
-go get golang.org/x/crypto/bcrypt
+go mod tidy
 ```
 ## 注意
 记得看go-auth/database/connection.go里面的注释  
